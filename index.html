@@ -1,57 +1,15 @@
-<!DOCTYPE html>
 <html>
   <head>
-    <meta charset="utf-8" />
-    <title>MindAR WebAR Prototype</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    
-    <!-- MindAR y A-Frame -->
     <script src="https://cdn.jsdelivr.net/gh/hiukim/mind-ar-js@1.2.5/dist/mindar-image.prod.js"></script>
     <script src="https://aframe.io/releases/1.5.0/aframe.min.js"></script>
     <script src="https://cdn.jsdelivr.net/gh/hiukim/mind-ar-js@1.2.5/dist/mindar-image-aframe.prod.js"></script>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/hiukim/mind-ar-js@1.2.5/dist/mindar-image.prod.css" />
-
-    <style>
-      body, html {
-        margin: 0;
-        padding: 0;
-        overflow: hidden;
-        width: 100%;
-        height: 100%;
-      }
-      canvas {
-        position: absolute;
-        top: 0;
-        left: 0;
-      }
-    </style>
   </head>
-
   <body>
-    <a-scene
-      mindar-image="imageTargetSrc: ./assets/targets.mind;"
-      vr-mode-ui="enabled: false"
-      device-orientation-permission-ui="enabled: true"
-      embedded
-      loading-screen="enabled: false"
-      renderer="colorManagement: true; logarithmicDepthBuffer: true"
-    >
-      <!-- Cargar recursos -->
-      <a-assets>
-        <a-asset-item id="astronaut" src="./assets/astronaut.glb"></a-asset-item>
-      </a-assets>
-
-      <!-- Cámara -->
+    <a-scene mindar-image="imageTargetSrc: ./targets.mind;" vr-mode-ui="enabled: false" device-orientation-permission-ui="enabled: false">
       <a-camera position="0 0 0" look-controls="enabled: false"></a-camera>
-
-      <!-- Target index 0 = primer imagen del archivo .mind -->
       <a-entity mindar-image-target="targetIndex: 0">
-        <a-gltf-model
-          src="#astronaut"
-          position="0 0 0"
-          scale="0.05 0.05 0.05"
-          rotation="0 0 0"
-        ></a-gltf-model>
+        <a-plane color="blue" opaciy="0.5" position="0 0 0" height="0.552" width="1" rotation="0 0 0"></a-plane>
       </a-entity>
     </a-scene>
   </body>
